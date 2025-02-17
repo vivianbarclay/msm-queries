@@ -7,7 +7,7 @@
 
 <dt>Dob</dt> 
   <% if @director.dob.present? %>
-    <dd><%= @director.dob.strftime("%B %d, %Y") %></dd>
+    <dd><%= @director.dob.strftime("%Y-%m-%d") %></dd>
   <% else %>
     
   <% end %>

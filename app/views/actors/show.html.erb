@@ -7,8 +7,9 @@
 
 <dt>Dob</dt>
 <% if @actor.dob.present? %>
-  <dd><@actor.dob.strftime("%Y-%m-%d")></dd>
+  <dd><%= @actor.dob.strftime("%Y-%m-%d") %></dd>
 <% else %>
+          
 <% end %>
 
 <dt>Bio</dt>

@@ -1,5 +1,5 @@
 <h1>List of all actors</h1>
-
+<hr>
 <table border="1">
   <tr>
     <th>ID</th>
@@ -22,7 +22,7 @@
       <td><%= actor.name %></td>
       <td>
         <% if actor.dob.present? %>
-          <%= actor.dob.strftime("%B %d, %Y") %>
+          <%= actor.dob.strftime("%Y-%m-%d") %>
         <% else %>
           
         <% end %>
