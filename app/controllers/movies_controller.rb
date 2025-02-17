@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @list_of_movies = Movie.all.order({ title: :desc }) # Sort by title descending
+    @list_of_movies = Movie.order(year: :desc, title: :asc) # Sort by title descending
   end
 
   def show

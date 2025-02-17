@@ -1,0 +1,45 @@
+<h1>List of all movies</h1>
+<hr>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+
+  <% @list_of_movies.each do |movie| %>
+    
+    <tr>
+      <td><%= movie.id %></td>
+      <td>
+        <% if movie.image.present? %>
+          <img src="<%= movie.image %>" alt="<%= movie.title %>" style ="width: 250px;">
+        <% else %>
+          No image available
+        <% end %>
+      </td>
+      <td><%= movie.title %></td>
+      <td>
+        <% if movie.year.present? %>
+          <%= movie.year %>
+        <% else %>
+          
+        <% end %>
+      <td>
+        <% if movie.director.present? %>
+          <%= movie.director.name %>
+        <% else %>
+          Unknown
+        <% end %>
+
+      </td>
+      <td>
+        <a href="/movies/<%= movie.id %>">Show details</a>
+      </td>
+    </tr>
+  <% end %>
+</table>

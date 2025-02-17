@@ -1,6 +1,6 @@
 class DirectorsController < ApplicationController
   def index
-    @list_of_directors = Director.all.order({ dob: :desc }) # Sort by DOB descending
+    @list_of_directors = Director.all.order({ dob: :desc, name: :asc }) # Sort by DOB descending
   end
 
   def show

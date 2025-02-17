@@ -1,0 +1,51 @@
+<h1>Actor #<%= @actor.id %> details</h1>
+<a href="/actors">Go back</a>
+<hr>
+
+<dt>Name</dt>
+<dd><%= @actor.name %></dd>
+
+<dt>Dob</dt>
+<% if @actor.dob.present? %>
+  <dd><@actor.dob.strftime("%Y-%m-%d")></dd>
+<% else %>
+<% end %>
+
+<dt>Bio</dt>
+<dd><%= @actor.bio %></dd>
+
+<dt>Image</dt>
+<% if @actor.image.present? %>
+  <dd><img src="<%= @actor.image %>" alt="<%= @actor.name %>" width="250 px"></dd>
+<% else %>
+
+<% end %>
+
+<dt>Created at</dt>
+<dd><%= @actor.created_at.strftime("%Y-%m-%d %H:%M:%S UTC") %></dd>
+
+<dt>Updated at</dt>
+<dd><%= @actor.updated_at.strftime("%Y-%m-%d %H:%M:%S UTC") %></dd>
+
+<hr>
+
+<h2>Filmography</h2>
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Character name</th>
+    <th></th>
+  </tr>
+
+  <% @characters.each do |character| %>
+    <tr>
+      <td><%= character.movie.title %></td>
+      <td><%= character.movie.year %></td>
+      <td><%= character.movie.director.name if character.movie.director.present? %></td>
+      <td><%= character.name %></td>
+      <td><a href="/movies/<%= character.movie.id %>">Show details</a></td>
+    </tr>
+  <% end %>
+</table>
