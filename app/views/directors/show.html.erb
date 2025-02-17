@@ -1,0 +1,50 @@
+<h1>Director #<%= @director.id %> details</h1>
+<a href="/directors">Go back</a>
+
+<p><strong>Name:</strong> <%= @director.name %></p>
+
+<p><strong>Dob:</strong> 
+  <% if @director.dob.present? %>
+    <%= @director.dob.strftime("%B %d, %Y") %>
+  <% else %>
+    Unknown
+  <% end %>
+</p>
+
+<p><strong>Bio:</strong> <%= @director.bio %></p>
+
+<% if @director.image.present? %>
+  <img src="<%= @director.image %>" alt="<%= @director.name %>" width="250">
+<% else %>
+  <p>No image available</p>
+<% end %>
+
+<p><strong>Created at:</strong> <%= @director.created_at.strftime("%Y-%m-%d %H:%M:%S UTC") %></p>
+<p><strong>Updated at:</strong> <%= @director.updated_at.strftime("%Y-%m-%d %H:%M:%S UTC") %></p>
+
+<h2>Filmography</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+  </tr>
+
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.id %></td>
+      <td>
+        <% if movie.image.present? %>
+          <img src="<%= movie.image %>" alt="<%= movie.title %>" width="100">
+        <% else %>
+          No image available
+        <% end %>
+      </td>
+      <td><%= movie.title %></td>
+      <td><%= movie.year %></td>
+      <td><%= @director.name %></td>
+    </tr>
+  <% end %>
+</table>
